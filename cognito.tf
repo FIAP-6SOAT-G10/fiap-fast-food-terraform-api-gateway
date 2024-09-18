@@ -38,9 +38,12 @@ resource "aws_cognito_user_pool_client" "customerpool_client" {
   name                                 = "customer"
   user_pool_id                         = aws_cognito_user_pool.customer_pool.id
   callback_urls                        = ["https://example.com"]
-  allowed_oauth_flows_user_pool_client = true
-  allowed_oauth_flows                  = ["code", "implicit"]
-  allowed_oauth_scopes                 = ["email", "openid"]
-  supported_identity_providers         = ["COGNITO"]
+  #allowed_oauth_flows_user_pool_client = true
+  #allowed_oauth_flows                  = ["code", "implicit"]
+  #allowed_oauth_scopes                 = ["email", "openid"]
+  #supported_identity_providers         = ["COGNITO"]
+
+  explicit_auth_flows                   = ["USER_PASSWORD_AUTH"]
+  generate_secret                       = false
 }
 
