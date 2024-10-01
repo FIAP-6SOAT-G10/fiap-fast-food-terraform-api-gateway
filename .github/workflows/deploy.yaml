@@ -43,7 +43,7 @@ jobs:
         run: terraform init
 
       - name: Print destroy
-        run: echo "destroy=${{ env.DESTROY }}" >> $GITHUB_ENV
+        run: echo "destroy= ${{ vars.DESTROY }}"
 
       - name: Terraform Plan
         env:
@@ -53,7 +53,7 @@ jobs:
         run: terraform plan -out=tfplan
 
       - name: Terraform Apply
-        if: env.DESTROY == 'false'
+        if: vars.DESTROY == 'false'
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -61,7 +61,7 @@ jobs:
         run: terraform apply --auto-approve
 
       - name: Terraform Destroy
-        if: env.DESTROY == 'true'
+        if: vars.DESTROY == 'true'
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
