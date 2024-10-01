@@ -43,7 +43,7 @@ jobs:
         run: terraform init
 
       - name: Print destroy
-        run: echo "destroy=${{ env.DESTROY }}" >> $GITHUB_OUTPUT
+        run: echo "destroy=${{ env.DESTROY }}" >> $GITHUB_ENV
 
       - name: Terraform Plan
         env:
