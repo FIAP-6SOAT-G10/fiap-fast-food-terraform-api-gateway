@@ -27,8 +27,7 @@ Este projeto utiliza Terraform para provisionar recursos na AWS, incluindo um AP
 1. Clone o repositório:
 
     ```bash
-    git clone https://github.com/seu-usuario/seu-repositorio.git
-    cd seu-repositorio
+    git clone https://github.com/FIAP-6SOAT-G10/fiap-fast-food-terraform-api-gateway.git
     ```
 
 2. Inicialize o Terraform:
@@ -50,9 +49,7 @@ Este projeto utiliza Terraform para provisionar recursos na AWS, incluindo um AP
 Para aplicar as configurações do Terraform e provisionar os recursos na AWS, execute:
 
 ```bash
-terraform apply.idea
-.terraform*
-terraform.*
+terraform apply
 ```
 
 ### Para destruir os recursos provisionados, execute:
